@@ -1,6 +1,6 @@
 import os
 import sys
-from src.exceptions import CustomException
+# from src.exceptions import CustomException
 from src.logger import logging
 import pandas as pd
 
@@ -9,6 +9,8 @@ from dataclasses import dataclass
 
 from src.componants.data_transformation import DataTransformation
 from src.componants.data_transformation import DataTransformationConfig
+from src.componants.model_trainer import ModelTrainer
+from src.exceptions import CustomException
 @dataclass
 class DataIngestionConfig:
     train_data_path: str=os.path.join('artifacts',"train.csv")
@@ -52,6 +54,9 @@ if __name__=="__main__":
 
     data_transformation=DataTransformation()
     train_arr,test_arr,_=data_transformation.Initiate_Data_transformation(train_data,test_data)
+    
+    model_trainer=ModelTrainer()
+    print(model_trainer.Initiate_Model_Trainer(train_arr,test_arr))
 
    
 
