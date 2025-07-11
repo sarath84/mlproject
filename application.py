@@ -41,6 +41,6 @@ def predict_datapoint():
         formated_result=f"{result[0]:.2f}"
         return render_template('home.html',result=formated_result)
     
-application.debug = True         
+       
 if __name__=="__main__":
     application.run(host="0.0.0.0")              
